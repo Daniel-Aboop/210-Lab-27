@@ -21,6 +21,7 @@ int main() {
     Villager["Audie"] = {5, "Alligator", "Snap to it!"};
     Villager["Raymond"] = {10, "Wolf", "woof woof"};
     Villager.insert({"Marshal", {8, "Cat", "cyaat"}});
+    //Main menu Function Handles all of the operations needed.
     MainMenu(Villager);
 /*
     // access the map using a range-based for loop
@@ -97,10 +98,15 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
                     break;
                 }
             }
+            cin.ignore();
             cout<<"Species: ";
             string temp3;
             getline(cin,temp3);
-            cin.ignore();
+            cout<<"Catchphrase: ";
+            string temp4;
+            getline(cin,temp4);
+            cout<<temp<<" was added!"<<endl;
+            Villager.insert({temp,{temp2,temp3,temp4}});
         }
         if(response==2){
 
@@ -186,9 +192,6 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
         else{
             cout<<"Invalid response please try again"<<endl;
         }
-
-
-
     cout << "Villagers details:" << endl;
     for (auto[pair,villagerdeets] : Villager ) {
         auto[happiness,species,phrase]=villagerdeets;
@@ -196,7 +199,4 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
     }
     cout<<endl;
     }
-
-
-
 }
