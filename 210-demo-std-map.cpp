@@ -33,7 +33,6 @@ int main() {
         cout << it->first << "[";
         tuple<int,string,string>villagerdeets=it->second;
         cout<<get<0>(villagerdeets)<<", "<<get<1>(villagerdeets)<<", "<<get<2>(villagerdeets)<<"]";
-
         cout << endl;
     }
 
@@ -45,9 +44,10 @@ int main() {
     auto it = Villager.find(searchKey);
     if (it != Villager.end()) {  // the iterator points to beyond the end of the map
                                        // if searchKey is not found
-        cout << "\nFound " << searchKey << "'s favorite colors: ";
-        for (auto tuple<int,string,string>villagerdeets : it->second)  // range loop to traverse the value/vector
-            cout << color << " ";
+        cout << "\nFound " << searchKey << "'s Villager details! "<<endl;
+        tuple<int,string,string>villagerdeets=it->second;
+        cout<<"["<<get<0>(villagerdeets)<<", "<<get<1>(villagerdeets)<<", "<<get<2>(villagerdeets)<<"]";
+        
         cout << endl;
     } else
         cout << endl << searchKey << " not found." << endl;
