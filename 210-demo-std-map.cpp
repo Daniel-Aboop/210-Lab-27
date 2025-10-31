@@ -80,14 +80,64 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
             continue;
         }
         if(response==1){
-            cout<<"Which Villager to D"
+            cout<<endl;
+            cout<<"Which Villager to Increase Friendship with?"<<endl;
+            for (auto[pair,villagerdeets] : Villager ) {
+                auto[happiness,species,phrase]=villagerdeets;
+                cout << pair<< "["<<happiness<<", "<<species<<", "<<phrase<<"]"<<endl;
+            }
+            cin.ignore();
+            cout<<"Enter Villager Name: ";
+            string temp;
+            getline(cin,temp);
+            string searchKey = temp;
+             auto it = Villager.find(searchKey);
+            if (it != Villager.end()) {  
+            cout << "\nFound " << searchKey << ""<<endl;
+            if(get<0>(Villager[searchKey])<10){
+                cout<<"Adding Friendship point now!"<<endl;
+                get<0>(Villager[searchKey])+=1;
+            }
+            else{
+                cout<<"Max Friendship reached!"<<endl;
+            }
+            } 
+            else{
+                cout << endl << searchKey << " not found." << endl;
+            }
+            cout<<endl;
         }
         else if(response==2){
-
+            cout<<endl;
+            cout<<"Which Villager to Decrease Friendship with?"<<endl;
+            for (auto[pair,villagerdeets] : Villager ) {
+                auto[happiness,species,phrase]=villagerdeets;
+                cout << pair<< "["<<happiness<<", "<<species<<", "<<phrase<<"]"<<endl;
+            }
+            cin.ignore();
+            cout<<"Enter Villager Name: ";
+            string temp;
+            getline(cin,temp);
+            string searchKey = temp;
+             auto it = Villager.find(searchKey);
+            if (it != Villager.end()) {  
+            cout << "\nFound " << searchKey <<endl;
+            if(get<0>(Villager[searchKey])>0){
+                cout<<"Removing Friendship point now!"<<endl;
+                get<0>(Villager[searchKey])-=1;
+            }
+            else{
+                cout<<"Lowest Friendship reached!"<<endl;
+            }
+            } 
+            else{
+                cout << endl << searchKey << " not found." << endl;
+            }
+            cout<<endl;
         }
         else if(response==3){
             cin.ignore();
-            cout<<"Enter Villager Name:";
+            cout<<"Enter Villager Name: ";
             string temp;
             getline(cin,temp);
             string searchKey = temp;
