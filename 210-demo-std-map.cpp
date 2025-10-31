@@ -64,14 +64,15 @@ int main() {
 }
 
 void MainMenu(map<string, tuple<int,string,string>>& Villager){
-   
     int response;
     while(true){
-         cout<<"1.Increase Friendship"<<endl<<
-        "2.Decrease Friendship"<<endl<<
-        "3.Search for Villager"<<endl<<
-        "4.Exit"<<endl;
-        cout<<"choice  --> ";
+        cout<<"1.Add Villager"<<endl<<
+        "2.Delete Villager"<<endl<<
+        "3.Increase Friendship"<<endl<<
+        "4.Decrease Friendship"<<endl<<
+        "5.Search for Villager"<<endl<<
+        "6.Exit"<<endl;
+        cout<<"Enter choice  --> ";
         cin>>response;
         if(cin.fail()){
             cin.clear();
@@ -80,6 +81,31 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
             continue;
         }
         if(response==1){
+            cin.ignore();
+            cout<<"Villager name: ";
+            string temp;
+            getline(cin,temp);
+            cout<<"Friendship level: ";
+            int temp2;
+            // Added this since you wanted the friendship points to be 0-10 
+            while(true){
+                cin>>temp2;
+                if(temp2<0||temp2>10){
+                    cout<<"Please pick a number within 0-10"<<endl;
+                }
+                else{
+                    break;
+                }
+            }
+            cout<<"Species: ";
+            string temp3;
+            getline(cin,temp3);
+            cin.ignore();
+        }
+        if(response==2){
+
+        }
+        if(response==3){
             cout<<endl;
             cout<<"Which Villager to Increase Friendship with?"<<endl;
             for (auto[pair,villagerdeets] : Villager ) {
@@ -107,7 +133,7 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
             }
             cout<<endl;
         }
-        else if(response==2){
+        else if(response==4){
             cout<<endl;
             cout<<"Which Villager to Decrease Friendship with?"<<endl;
             for (auto[pair,villagerdeets] : Villager ) {
@@ -135,7 +161,7 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
             }
             cout<<endl;
         }
-        else if(response==3){
+        else if(response==5){
             cin.ignore();
             cout<<"Enter Villager Name: ";
             string temp;
@@ -154,7 +180,7 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
             }
             cout<<endl;
         }
-       else if(response==4){
+       else if(response==6){
         break;
        }
         else{
