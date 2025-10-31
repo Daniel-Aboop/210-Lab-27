@@ -16,7 +16,7 @@ int main() {
     MainMenu(Villager);
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
-   
+   /*
     Villager["Audie"] = {5, "Alligator", "Snap to it!"};
     Villager["Raymond"] = {10, "Wolf", "cyaat but im a dog"};
     Villager.insert({"Marshal", {8, "Cat", "cyaat"}});
@@ -58,17 +58,25 @@ int main() {
     cout << "\nSize before clear: " << Villager.size() << endl;
     Villager.clear();
     cout << "Size after clear: " << Villager.size() << endl;
-
+    */
     return 0;
 }
 
 void MainMenu(map<string, tuple<int,string,string>>& Villager){
-    cout<<"1.Increase Friendship"<<endl<<
-    "2.Decrease Friendship"<<endl<<
-    "3.Search for Villager"<<endl<<
-    "4.Exit"<<endl;
+   
     int response;
     while(true){
+         cout<<"1.Increase Friendship"<<endl<<
+        "2.Decrease Friendship"<<endl<<
+        "3.Search for Villager"<<endl<<
+        "4.Exit"<<endl;
+        cin>>response;
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore();
+            cout<<"Invalid response please try again"<<endl;
+            continue;
+        }
         if(response==1){
 
         }
@@ -76,13 +84,13 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
 
         }
         else if(response==3){
-            
+
         }
-
-
-
-        if(response==4){
-            break;
+       else if(response==4){
+        break;
+       }
+        else{
+            cout<<"Invalid response please try again"<<endl;
         }
     }
 
