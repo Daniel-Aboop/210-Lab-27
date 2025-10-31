@@ -25,19 +25,18 @@ int main() {
 
 
     // access the map using a range-based for loop
-    cout << "Villagers and their favorite colors (range-based for loop):" << endl;
-    for (auto pair : villagerColors) {
-        cout << pair.first << ": ";
-        for (auto color : pair.second)
-            cout << color << " ";
-        cout << endl;
-    }
-    for(auto& pair: Villager){
-        cout<<get<0>(pair)<<": "<<endl;
-
-
+    cout << "Villager details: " << endl;
+    for(auto pair: villagerColors){
+        cout<<pair.first;
+        for(auto& pair2: Villager){
+            if(get<0>)
+            cout<<"["<<get<0>(pair2)<<", "<<get<1>(pair2)<<", "<<get<2>(pair2)<<"]";
+        }
+        cout<<endl;
     }
 
+    
+/*
     // access the map using iterators
     cout << "\nVillagers and their favorite colors (iterators):" << endl;
     for (map<string, vector<string>>::iterator it = villagerColors.begin(); 
@@ -68,6 +67,6 @@ int main() {
     cout << "\nSize before clear: " << villagerColors.size() << endl;
     villagerColors.clear();
     cout << "Size after clear: " << villagerColors.size() << endl;
-
+    */
     return 0;
 }
