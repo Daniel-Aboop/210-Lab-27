@@ -7,11 +7,13 @@
 #include <vector>
 using namespace std;
 
+void MainMenu(map<string, tuple<int,string,string>>& Villager);
+
 int main() {
     // declarations
     map<string, tuple<int,string,string>> Villager;
   
-
+    MainMenu(Villager);
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
    
@@ -58,4 +60,32 @@ int main() {
     cout << "Size after clear: " << Villager.size() << endl;
 
     return 0;
+}
+
+void MainMenu(map<string, tuple<int,string,string>>& Villager){
+    cout<<"1.Increase Friendship"<<endl<<
+    "2.Decrease Friendship"<<endl<<
+    "3.Search for Villager"<<endl<<
+    "4.Exit"<<endl;
+    int response;
+    while(true){
+        if(response==1){
+
+        }
+        else if(response==2){
+
+        }
+        else if(response==3){
+            
+        }
+
+
+
+        if(response==4){
+            break;
+        }
+    }
+
+
+
 }
