@@ -9,33 +9,24 @@ using namespace std;
 
 int main() {
     // declarations
-    map<string, vector<string>> villagerColors;
-   vector<tuple<int,string,string>> Villager; 
+    map<string, tuple<int,string,string>> Villager;
+  
 
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
-    Villager.push_back({5,"Alligator","Snap to It!"});
-    Villager.push_back({10,"Wolf","Hubba hubba!"});
-    Villager.push_back({8,"Cat","Nice fit"});
-
-
-    villagerColors["Audie"] = {"Orange", "Yellow", "Red"};
-    villagerColors["Raymond"] = {"Black", "Gray", "White"};
-    villagerColors.insert({"Marshal", {"Blue", "White", "Black"}});
+   
+    villagerColors["Audie"] = {5, "Alligator", "Snap to it!"};
+    villagerColors["Raymond"] = {10, "Gray", "White"};
+    villagerColors.insert({"Marshal", {8, "White", "Black"}});
 
 
     // access the map using a range-based for loop
-    cout << "Villager details: " << endl;
-    for(auto pair: villagerColors){
-        cout<<pair.first;
-        for(auto& pair2: Villager){
-            if(get<0>)
-            cout<<"["<<get<0>(pair2)<<", "<<get<1>(pair2)<<", "<<get<2>(pair2)<<"]";
-        }
-        cout<<endl;
+    cout << "Villagers and their favorite colors (range-based for loop):" << endl;
+    for (auto pair : villagerColors) {
+        cout << pair.first << ": ";
+        
+        cout << endl;
     }
-
-    
 /*
     // access the map using iterators
     cout << "\nVillagers and their favorite colors (iterators):" << endl;
@@ -67,6 +58,6 @@ int main() {
     cout << "\nSize before clear: " << villagerColors.size() << endl;
     villagerColors.clear();
     cout << "Size after clear: " << villagerColors.size() << endl;
-    */
+*/
     return 0;
 }
