@@ -4,6 +4,7 @@
 #include <iostream>
 #include <map>
 #include <tuple>
+#include <string>
 #include <vector>
 using namespace std;
 
@@ -13,15 +14,15 @@ int main() {
     // declarations
     map<string, tuple<int,string,string>> Villager;
   
-    MainMenu(Villager);
+    
     // insert elements into the map
     // note how the right-hand side of the assignment are the vector elements
-   /*
+   
     Villager["Audie"] = {5, "Alligator", "Snap to it!"};
-    Villager["Raymond"] = {10, "Wolf", "cyaat but im a dog"};
+    Villager["Raymond"] = {10, "Wolf", "woof woof"};
     Villager.insert({"Marshal", {8, "Cat", "cyaat"}});
-
-
+    MainMenu(Villager);
+/*
     // access the map using a range-based for loop
     cout << "Villagers details:" << endl;
     for (auto[pair,villagerdeets] : Villager ) {
@@ -70,6 +71,7 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
         "2.Decrease Friendship"<<endl<<
         "3.Search for Villager"<<endl<<
         "4.Exit"<<endl;
+        cout<<"choice  --> ";
         cin>>response;
         if(cin.fail()){
             cin.clear();
@@ -78,13 +80,29 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
             continue;
         }
         if(response==1){
-
+            cout<<"Which Villager to D"
         }
         else if(response==2){
 
         }
         else if(response==3){
-
+            cin.ignore();
+            cout<<"Enter Villager Name:";
+            string temp;
+            getline(cin,temp);
+            string searchKey = temp;
+            auto it = Villager.find(searchKey);
+            if (it != Villager.end()) {  // the iterator points to beyond the end of the map
+                                        // if searchKey is not found
+            cout << "\nFound " << searchKey << "'s Villager details! "<<endl;
+            tuple<int,string,string>villagerdeets=it->second;
+            cout<<"["<<get<0>(villagerdeets)<<", "<<get<1>(villagerdeets)<<", "<<get<2>(villagerdeets)<<"]";
+            
+            cout << endl;
+            } else{
+                cout << endl << searchKey << " not found." << endl;
+            }
+            cout<<endl;
         }
        else if(response==4){
         break;
@@ -92,6 +110,15 @@ void MainMenu(map<string, tuple<int,string,string>>& Villager){
         else{
             cout<<"Invalid response please try again"<<endl;
         }
+
+
+
+    cout << "Villagers details:" << endl;
+    for (auto[pair,villagerdeets] : Villager ) {
+        auto[happiness,species,phrase]=villagerdeets;
+        cout << pair<< "["<<happiness<<", "<<species<<", "<<phrase<<"]"<<endl;
+    }
+    cout<<endl;
     }
 
 
